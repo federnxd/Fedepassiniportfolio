@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Post-Production Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #2c3e50;
+            --color-secondary: #3498db;
+            --color-accent: #e74c3c;
+            --color-light: #ecf0f1;
+            --color-dark: #2c3e50;
+            --color-bg: #f8f9fa;
+            --color-margins: #3a516e; /* Azul más claro para los márgenes */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--color-margins); /* Márgenes con azul más claro */
+            overflow-x: hidden; /* Prevenir scroll horizontal */
+        }
+        
+        /* Contenedor principal con márgenes azules */
+        .page-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        header {
+            background-color: var(--color-primary); /* Encabezado con azul original */
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            left: 0;
+        }
+        
+        /* Ajustar el contenido del header para que no se superponga con los márgenes */
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--color-secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+            overflow: hidden;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown-content a {
+            color: var(--color-dark);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s;
+            font-weight: normal;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--color-light);
+            color: var(--color-secondary);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--color-secondary);
+        }
+
+        .btn-about {
+            background: var(--color-accent);
+        }
+        
+        .btn-about:hover {
+            background: #c0392b;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--color-dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--color-secondary);
+            border-radius: 2px;
+        }
+        
+        .about-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            margin: 0 auto 2rem;
+            display: block;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .carousel-container {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        
+        .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .carousel-prev {
+            left: 10px;
+        }
+        
+        .carousel-next {
+            right: 10px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+            z-index: 10;
+        }
+        
+        .carousel-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-indicator.active {
+            background: white;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+        
+        .project-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .audio-player, .video-player {
+            width: 100%;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        .comparison-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .comparison-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+        
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .comparison-box {
+            text-align: center;
+        }
+        
+        .comparison-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .before .comparison-label {
+            background-color: #ffebee;
+            color: #e53935;
+        }
+        
+        .after .comparison-label {
+            background-color: #e8f5e9;
+            color: #43a047;
+        }
+        
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+        
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Dialogue comparison carousel */
+        .dialogue-carousel {
+            position: relative;
+            margin: 1.5rem 0;
+        }
+        
+        .dialogue-slide {
+            display: none;
+        }
+        
+        .dialogue-slide.active {
+            display: block;
+        }
+        
+        .dialogue-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 10px;
+        }
+        
+        .dialogue-btn {
+            background: var(--color-secondary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .dialogue-btn:hover {
+            background: #2980b9;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--color-secondary);
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .skill-category li:before {
+            content: "•";
+            color: var(--color-secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .education {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .education-item h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-item p {
+            color: 666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .studio-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--color-secondary);
+            width: 20px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--color-dark);
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--color-secondary);
+            outline: none;
+        }
+        
+        footer {
+            background: var(--color-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--color-secondary);
+        }
+        
+        @media (max-width: 1400px) {
+            /* Asegurar que el header no se superponga en pantallas más grandes */
+            header {
+                left: calc((100% - 1400px) / 2);
+                width: 1400px;
+            }
+        }
+        
+        @media (max-width: 1440px) {
+            header {
+                left: 0;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-content, .contact-content, .comparison-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--color-primary);
+                padding: 1rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                color: white;
+                cursor: pointer;
+            }
+            
+            .page-container {
+                margin: 0;
+            }
+            
+            header {
+                left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal para los márgenes azules -->
+    <div class="page-container">
+        <header>
+            <div class="header-content">
+                <nav>
+                    <div class="logo">
+                        <i class="fas fa-wave-square"></i>
+                        <span>Federico Passini - Audio Services</span>
+                    </div>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#projects">Projects</a>
+                            <div class="dropdown-content">
+                                <a href="#sound-design">Sound Design</a>
+                                <a href="#dialogue-editing">Dialogue Editing</a>
+                                <a href="#mixing-mastering">Mixing & Mastering</a>
+                                <a href="#commercials">Commercial Spots</a>
+                                <a href="#restoration">Audio Restoration</a>
+                                <a href="#acoustic-design">Acoustic Design</a>
+                            </div>
+                        </li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="home" class="hero">
+            <h1>Federico Passini - Audio Production and Post-Production Specialist</h1>
+            <p>Bringing your projects to life with the highest quality sound</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#about" class="btn btn-about">About Me</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">My Projects</h2>
+            
+            <!-- First row: 3 projects -->
+            <div class="projects-row">
+                <div class="projects">
+                    <!-- Sound Design -->
+                    <div id="sound-design" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Game Sound Design" style="background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                                <div class="carousel-item" data-src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Sound Design Process" style="background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                                <div class="carousel-item" data-src="https://images.unsplash.com/photo-1548213238-0da7521bd6e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Foley Recording" style="background-image: url('https://images.unsplash.com/photo-1548213238-0da7521bd6e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <span class="carousel-indicator active"></span>
+                                <span class="carousel-indicator"></span>
+                                <span class="carousel-indicator"></span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Sound Design</h3>
+                            <p>Creating sound effects and atmosphere for games and films using VCV Rack 2, Kontakt, and Foley techniques</p>
+                            <audio class="audio-player" controls>
+                                <source src="audio/sound-design-sample.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    <!-- Dialogue Editing -->
+                    <div id="dialogue-editing" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-item" data-src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Dialogue Editing Process" style="background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Dialogue Editing</h3>
+                            <p>Cleaning, enhancing and restoring dialogue recordings for film, television and podcasts using iZotope RX</p>
+                            
+                            <div class="dialogue-carousel">
+                                <div class="dialogue-slide active">
+                                    <div class="comparison-container">
+                                        <div class="comparison-box before">
+                                            <span class="comparison-label">BEFORE</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="audio/dialog-before-1.mp3" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Original dialogue with background noise</p>
+                                        </div>
+                                        <div class="comparison-box after">
+                                            <span class="comparison-label">AFTER</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="audio/dialog-after-1.mp3" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Cleaned and enhanced dialogue</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="dialogue-slide">
+                                    <div class="comparison-container">
+                                        <div class="comparison-box before">
+                                            <span class="comparison-label">BEFORE</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="audio/dialog-before-2.mp3" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Dialogue with hum and electrical interference</p>
+                                        </div>
+                                        <div class="comparison-box after">
+                                            <span class="comparison-label">AFTER</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="audio/dialog-after-2.mp3" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Clean dialogue after processing</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="dialogue-controls">
+                                    <button class="dialogue-btn prev-dialogue">Previous</button>
+                                    <button class="dialogue-btn next-dialogue">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mixing & Mastering -->
+                    <div id="mixing-mastering" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Mixing Process" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                                <div class="carousel-item" data-src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Mastering Process" style="background-image: url('https://images.unsplash.com/photo-1571330735066-03aaa9429d89?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                                <div class="carousel-item" data-src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Studio Setup" style="background-image: url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <span class="carousel-indicator active"></span>
+                                <span class="carousel-indicator"></span>
+                                <span class="carousel-indicator"></span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Mixing & Mastering</h3>
+                            <p>Mixing and mastering for music albums and singles using Reaper, Ableton Live and professional plugins</p>
+                            <audio class="audio-player" controls>
+                                <source src="audio/mixing-sample.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second row: 3 projects -->
+            <div class="projects-row" style="margin-top: 3rem;">
+                <div class="projects">
+                    <!-- Commercial Spots -->
+                    <div id="commercials" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Radio Commercial" style="background-image: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                                <div class="carousel-item" data-src="https://images.unsplash.com/photo-1599658880436-444c5a6f90ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="TV Commercial" style="background-image: url('https://images.unsplash.com/photo-1599658880436-444c5a6f90ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                                <div class="carousel-item" data-src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Online Ad" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <span class="carousel-indicator active"></span>
+                                <span class="carousel-indicator"></span>
+                                <span class="carousel-indicator"></span>
+                            </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Commercial Spots</h3>
+                        <p>Professional audio production for radio and TV advertising campaigns with clear voiceovers and impactful sound design.</p>
+                        <audio class="audio-player" controls>
+                            <source src="audio/commercial-1.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Audio Restoration -->
+                <div id="restoration" class="project-card">
+                    <div class="carousel-container">
+                        <div class="carousel-slide">
+                            <div class="carousel-item" data-src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Audio Restoration Process" style="background-image: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="carousel-item" data-src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Restoration Tools" style="background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="carousel-item" data-src="https://images.unsplash.com/photo-1548213238-0da7521bd6e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Audio Analysis" style="background-image: url('https://images.unsplash.com/photo-1548213238-0da7521bd6e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        </div>
+                        <button class="carousel-btn carousel-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn carousel-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-indicators">
+                            <span class="carousel-indicator active"></span>
+                            <span class="carousel-indicator"></span>
+                            <span class="carousel-indicator"></span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Audio Restoration</h3>
+                        <p>Restoring and enhancing old or damaged audio recordings using advanced tools and techniques for archival quality results.</p>
+                        <audio class="audio-player" controls>
+                            <source src="audio/restoration-sample.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- Acoustic Design -->
+                <div id="acoustic-design" class="project-card">
+                    <div class="carousel-container">
+                        <div class="carousel-slide">
+                            <div class="carousel-item" data-src="https://images.unsplash.com/photo-1603298616804-5c0e5cdefb62?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Radio Studio Design #1" style="background-image: url('https://images.unsplash.com/photo-1603298616804-5c0e5cdefb62?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                            <div class="carousel-item" data-src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" data-caption="Radio Studio Design #2" style="background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                        </div>
+                        <button class="carousel-btn carousel-prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-btn carousel-next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="carousel-indicators">
+                            <span class="carousel-indicator active"></span>
+                            <span class="carousel-indicator"></span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Acoustic Design</h3>
+                        <p>Custom acoustic treatment designs for professional studios, featuring specialized panels, bass traps, and diffusers for optimal sound quality.</p>
+                        <p><strong>Features:</strong> Custom acoustic panels, bass traps, diffusers, and professional measurement with Room EQ Wizard.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        
+        <!-- Added image below the title -->
+        <img src="images/federico-passini-about-me.jpg" alt="Federico Passini - Audio Post-Production Specialist" class="about-image">
+        
+        <div class="about-content">
+            <div>
+                <p>Hi, my name is Federico Passini, I am an Audio Post-Production and Production Specialist based in Rosario, Santa Fe, Argentina. With over five years of professional experience in the industry. My passion is creating sound experiences, bringing ideas to life through audio production and processing.</p>
+                
+                <p>I hold advanced diplomas in Digital Audio and Audio for Video Games from Universidad Tecnológica Nacional de Buenos Aires (UTN.BA), a certification in Music Production and Recording from Berklee College of Music, and professional operation credentials from Fundación Latinoamericana de Audio Profesional (FUNLAP).</p>
+                
+                <p>My expertise is further enhanced by specialized training in Sampling & Synthesis, Multiplatform Streaming, Digital Console Operation, and advanced Mixing & Mastering from institutions like CETEAR,Ocho records, etc. Furthermore I hold diplomas in Software - QA from Universidad Tecnológica Nacional - Facultad Regional Resistencia (UTN.FRR) and in library and archive assistant technician from UTF.</p>
+                
+                <div class="education">
+                    <h3>Education & Certifications</h3>
+                    <div class="education-item">
+                        <h4>Digital Audio</h4>
+                        <p>Universidad Tecnológica Nacional de Buenos Aires(UTN.BA)</p>
+                        <h4>Audio Production and implementation for games</h4>
+                        <p>Universidad Tecnológica Nacional de Buenos Aires(UTN.BA)</p>
+                        <h4>Audio editing and Digital signals procesing</h4>
+                        <p>Universidad Tecnológica Nacional de Buenos Aires(UTN.BA)</p>
+                        <h4>Synthesis And Sampling</h4>
+                        <p>Universidad Tecnológica Nacional de Buenos Aires(UTN.BA)</p>
+                        <h4>Sound design for lineal and non-linear media</h4>
+                        <p>Universidad Tecnológica Nacional de Buenos Aires(UTN.BA)</p>
+                        <h4>Audio for Games</h4>
+                        <p>Universidad Tecnológica Nacional de Buenos Aires(UTN.BA)</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Music Production and Recording</h4>
+                        <p>Berklee College of Music</p>
+                        <h4>Recording And Mixing Music</h4>
+                        <p>Berklee College of Music</p>
+                        <h4>Music Production and It's Effects in Composition</h4>
+                        <p>Berklee College of Music</p>
+                        <h4>Creating Music with Technology</h4>
+                        <p>Berklee College of Music</p>
+                        
+                        <p>Certifications</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Professional Radio Operation</h4>
+                        <p>Fundación Latinoamericana de Audio Profesional (FUNLAP)</p>
+                        <h4>Profesional Multi-Platform Streaming</h4>
+                        <p>Fundación Latinoamericana de Audio Profesional (FUNLAP)</p>
+                        <h4>Digital Mixers Workshop</h4>
+                        <p>Fundación Latinoamericana de Audio Profesional (FUNLAP)</p>
+                    </div>
+                    <div class="education-item">
+                        <h4>Software Tester - QA</h4>
+                        <p>Universidad Tecnológica Nacional, Facultad Regional Resistencia (UTN.FRR)</p>
+                        <h4>Library and Archive Assistant Technician</h4>
+                        <p>Instituto Iberoamericano UTF</p>
+                    </div>
+                </div>
+                
+                <div class="studio-section">
+                    <h3>My Studio - ¨Mítica Studio¨</h3>
+                    <p>I work from my own acoustically-designed studio, treated with specific panels, traps, and diffusers I built myself and measured with Room EQ Wizard. It is equipped with first-line microphones, a high-end mixing console, precision monitors and headphones, and a wide array of instruments and MIDI controllers. This ensures that every step, from recording to the final master, is executed in a critical listening environment.</p>
+                </div>
+            </div>
+            
+            <div class="skills">
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Technical Skills</h3>
+                    <ul>
+                        <li>Sound Design & Implementation</li>
+                        <li>Audio Restoration & Dialogue Editing</li>
+                        <li>Mixing, Mastering & Music Production</li>
+                        <li>Game Audio Implementation (Wwise/Unity)</li>
+                        <li>Foley Recording</li>
+                        <li>Modular Synthesis</li>
+                        <li>Studio Acoustics Treatment</li>
+                        <li>live sound and radio operation</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-desktop"></i> Software & Tools</h3>
+                    <ul>
+                        <li>Reaper, Ableton Live, Pro Tools</li>
+                        <li>iZotope RX Suite</li>
+                        <li>VCV Rack 2 for modular synthesis</li>
+                        <li>Vast list of VST's and Plug-Ins</li>
+                        </li>Kontakt</li>
+                        <li>Wwise, Unity</li>
+                        <li>Soundly Sound Libraries</li>
+                        <li>AI Tools (Suno)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-star"></i> Creative Approach</h3>
+                    <ul>
+                        <li>Combining cutting-edge technology with traditional techniques</li>
+                        <li>AI-integrated workflows for enhanced creativity</li>
+                        <li>Focus on how sound affects perception and emotion</li>
+                        <li>Detail-oriented with creative problem-solving</li>
+                        <li>Efficient, high-quality results</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Have a project in mind?</h3>
+                <p>Let's talk about how I can help with your audio post-production needs.</p>
+                <p><i class="fas fa-envelope"></i> your.email@example.com</p>
+                <p><i class="fas fa-phone"></i> +9 (341) 6053-066</p>
+                <p><i class="fas fa-map-marker-alt"></i> Rosario, Santa Fe, Argentina</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service of Interest</label>
+                    <select id="service">
+                        <option value="">Select a service</option>
+                        <option value="sound-design">Sound Design</option>
+                        <option value="dialogues">Dialogue/Voice Over Editing</option>
+                        <option value="mixing">Mixing & Mastering</option>
+                        <option value="commercials">Commercial Spots</option>
+                        <option value="restoration">Audio Cleaning/Restoration</option>
+                        <option value="acoustic-design">Acoustic Design</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-img" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+        <div class="lightbox-close" id="lightbox-close">
+            <i class="fas fa-times"></i>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2019 Federico Passini - Mítica Studio. All rights reserved.</p>
+    </footer>
+    </div> <!-- Cierre del page-container -->
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Carousel functionality
+        document.querySelectorAll('.carousel-container').forEach(container => {
+            const slide = container.querySelector('.carousel-slide');
+            if (!slide) return;
+            
+            const items = container.querySelectorAll('.carousel-item');
+            const prevBtn = container.querySelector('.carousel-prev');
+            const nextBtn = container.querySelector('.carousel-next');
+            const indicators = container.querySelectorAll('.carousel-indicator');
+            
+            let currentIndex = 0;
+            const totalItems = items.length;
+            
+            // Function to update carousel position
+            function updateCarousel() {
+                slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Next button event
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % totalItems;
+                    updateCarousel();
+                });
+            }
+            
+            // Previous button event
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                    updateCarousel();
+                });
+            }
+            
+            // Indicator click events
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // Initialize the carousel
+            updateCarousel();
+        });
+        
+        // Dialogue comparison carousel functionality
+        const dialogueSlides = document.querySelectorAll('.dialogue-slide');
+        const prevDialogueBtn = document.querySelector('.prev-dialogue');
+        const nextDialogueBtn = document.querySelector('.next-dialogue');
+        let currentDialogueSlide = 0;
+        
+        function showDialogueSlide(index) {
+            dialogueSlides.forEach(slide => slide.classList.remove('active'));
+            dialogueSlides[index].classList.add('active');
+            currentDialogueSlide = index;
+        }
+        
+        if (prevDialogueBtn && nextDialogueBtn) {
+            prevDialogueBtn.addEventListener('click', () => {
+                let newIndex = currentDialogueSlide - 1;
+                if (newIndex < 0) newIndex = dialogueSlides.length - 1;
+                showDialogueSlide(newIndex);
+            });
+            
+            nextDialogueBtn.addEventListener('click', () => {
+                let newIndex = currentDialogueSlide + 1;
+                if (newIndex >= dialogueSlides.length) newIndex = 0;
+                showDialogueSlide(newIndex);
+            });
+        }
+        
+        // Lightbox functionality for all carousel items
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        
+        // Open lightbox when clicking on any carousel item
+        document.querySelectorAll('.carousel-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.getAttribute('data-src');
+                const caption = item.getAttribute('data-caption');
+                
+                if (imgSrc) {
+                    lightboxImg.src = imgSrc;
+                    lightboxCaption.textContent = caption;
+                    lightbox.style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
+                }
+            });
+        });
+        
+        // Close lightbox
+        lightboxClose.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        });
+        
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            }
+        });
+        
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Enable scrolling
+            }
+        });
+    </script>
+</body>
+</html>
