@@ -1579,7 +1579,7 @@
                 });
             }
             
-            // Carousel functionality - ACTUALIZADO para manejar múltiples imágenes en el carrusel y pausar videos
+            // Carousel functionality - CORREGIDO para funcionar correctamente en todos los carruseles
             document.querySelectorAll('.carousel-container').forEach(container => {
                 const slide = container.querySelector('.carousel-slide');
                 if (!slide) return;
@@ -1605,23 +1605,30 @@
                     }
                 }
                 
-                // Función para pausar todos los videos y audios
+                // Función para pausar todos los videos y audios (solo si existen)
                 function pauseAllMedia() {
                     if (mediaCarousel && mediaSlides) {
-                        mediaSlides.forEach(slide => {
-                            const videos = slide.querySelectorAll('video');
-                            const audios = slide.querySelectorAll('audio');
-                            
-                            videos.forEach(video => {
-                                video.pause();
-                                video.currentTime = 0;
-                            });
-                            
-                            audios.forEach(audio => {
-                                audio.pause();
-                                audio.currentTime = 0;
-                            });
+                        // Verificar si hay medios para pausar
+                        const hasMedia = Array.from(mediaSlides).some(slide => {
+                            return slide.querySelector('video') || slide.querySelector('audio');
                         });
+                        
+                        if (hasMedia) {
+                            mediaSlides.forEach(slide => {
+                                const videos = slide.querySelectorAll('video');
+                                const audios = slide.querySelectorAll('audio');
+                                
+                                videos.forEach(video => {
+                                    video.pause();
+                                    video.currentTime = 0;
+                                });
+                                
+                                audios.forEach(audio => {
+                                    audio.pause();
+                                    audio.currentTime = 0;
+                                });
+                            });
+                        }
                     }
                 }
                 
@@ -1639,9 +1646,9 @@
                         }
                     });
                     
-                    // Sincronizar con el carrusel de medios
-                    if (mediaSlides) {
-                        // Pausar todos los medios antes de cambiar
+                    // Sincronizar con el carrusel de medios (solo si existe)
+                    if (mediaCarousel && mediaSlides) {
+                        // Pausar medios solo si el carrusel tiene contenido multimedia
                         pauseAllMedia();
                         
                         currentMediaIndex = currentIndex;
