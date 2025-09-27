@@ -729,13 +729,14 @@
             padding-bottom: 1rem !important;
         }
         
-        /* Nuevos estilos para thumbnails y loading */
+        /* Nuevos estilos para thumbnails y loading - MEJORADOS */
         .video-container {
             position: relative;
             width: 100%;
-            height: 200px; /* Altura fija para mantener el espacio */
+            min-height: 200px; /* Altura mínima para mantener el espacio */
             margin: 0.7rem 0;
             overflow: hidden;
+            transition: min-height 0.3s ease; /* Transición suave para cambios de altura */
         }
         
         .video-thumbnail {
@@ -743,7 +744,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 200px; /* Altura fija para el thumbnail */
             background-size: cover;
             background-position: center;
             border-radius: 4px;
@@ -821,17 +822,18 @@
         
         .video-player {
             width: 100%;
-            height: 100%;
+            max-width: 100%;
             border-radius: 4px;
             display: none;
-            object-fit: cover;
+            margin: 0 auto;
         }
         
         .youtube-player {
             width: 100%;
-            height: 100%;
+            max-width: 100%;
             border-radius: 4px;
             display: none;
+            margin: 0 auto;
         }
         
         .video-loaded .video-player,
@@ -855,6 +857,13 @@
         .media-slide p {
             margin-top: 0.7rem;
             min-height: 40px; /* Altura mínima para mantener consistencia */
+        }
+        
+        /* Estilo para mantener el espacio cuando el video se carga */
+        .video-container.video-loaded,
+        .video-container.youtube-loaded {
+            min-height: auto; /* Permite que el contenedor se adapte al video */
+            height: auto;
         }
         
         @media (max-width: 1400px) {
@@ -972,6 +981,10 @@
             }
             
             .video-container {
+                min-height: 150px;
+            }
+            
+            .video-thumbnail {
                 height: 150px;
             }
             
@@ -1987,6 +2000,57 @@
         let currentlyPlayingMedia = null;
         let youtubePlayer = null;
         let youtubeIsPlaying = false;
+
+        // Cargar la API de YouTube IFrame
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Crear el reproductor de YouTube cuando la API esté lista
+        function onYouTubeIframeAPIReady() {
+            // Nota: Ahora crearemos el reproductor cuando se haga clic en el thumbnail
+        }
+
+        // Función para crear el reproductor de YouTube
+        function createYouTubePlayer(container, youtubeId) {
+            youtubePlayer = new YT.Player(container, {
+                height: '315',
+                width: '100%',
+                videoId: youtubeId,
+                playerVars: {
+                    'autoplay': 1, // Agregamos autoplay aquí
+                    'playsinline': 1,
+                    'enablejsapi': 1,
+                    'origin': window.location.origin
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // Función que se ejecuta cuando el reproductor de YouTube está listo
+        function onPlayerReady(event) {
+            // El reproductor está listo, pero el autoplay ya está configurado en playerVars
+            // Si por alguna razón no funciona el autoplay, podemos forzar la reproducción aquí
+            event.target.playVideo();
+        }
+
+        // Manejar cambios de estado del reproductor de YouTube
+        function onPlayerStateChange(event) {
+            // Cuando YouTube comienza a reproducirse
+            if (event.data === YT.PlayerState.PLAYING) {
+                youtubeIsPlaying = true;
+                // Detener todos los medios de audio/video
+                stopAllAudioVideoMedia();
+            }
+            // Cuando YouTube se pausa o termina
+            else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                youtubeIsPlaying = false;
+            }
+        }
         
         // Función para cargar videos con thumbnails
         function loadVideoWithThumbnail(thumbnail) {
@@ -2006,7 +2070,15 @@
             video.load();
             
             // Evento cuando el video tiene datos suficientes para reproducirse
-            video.addEventListener('canplay', function() {
+            video.addEventListener('loadedmetadata', function() {
+                // Ajustar la altura del contenedor según el aspect ratio del video
+                const videoRatio = video.videoHeight / video.videoWidth;
+                const containerWidth = videoContainer.offsetWidth;
+                const calculatedHeight = containerWidth * videoRatio;
+                
+                // Establecer la altura mínima del contenedor para que se adapte al video
+                videoContainer.style.minHeight = Math.max(200, calculatedHeight) + 'px';
+                
                 // Ocultar indicador de carga y mostrar el video
                 videoContainer.classList.remove('video-loading');
                 videoContainer.classList.add('video-loaded');
@@ -2068,31 +2140,29 @@
             // Mostrar indicador de carga
             videoContainer.classList.add('video-loading');
             
-            // Crear el iframe de YouTube
-            const iframe = document.createElement('iframe');
-            iframe.width = '100%';
-            iframe.height = '100%';
-            iframe.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&enablejsapi=1&origin=${window.location.origin}`;
-            iframe.frameBorder = '0';
-            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-            iframe.allowFullscreen = true;
+            // Ajustar la altura del contenedor para YouTube
+            videoContainer.style.minHeight = '315px';
             
-            // Limpiar el contenedor y agregar el iframe
+            // Crear un ID único para el contenedor del reproductor de YouTube
+            const playerId = 'youtube-player-' + Math.random().toString(36).substr(2, 9);
+            youtubePlayerDiv.id = playerId;
+            
+            // Limpiar el contenedor
             youtubePlayerDiv.innerHTML = '';
-            youtubePlayerDiv.appendChild(iframe);
             
-            // Simular carga (en realidad, YouTube se carga automáticamente)
-            setTimeout(() => {
-                videoContainer.classList.remove('video-loading');
-                videoContainer.classList.add('youtube-loaded');
+            // Usar la API de YouTube para crear el reproductor
+            if (typeof YT !== 'undefined' && YT.Player) {
+                createYouTubePlayer(playerId, youtubeId);
                 
-                // Configurar el reproductor de YouTube
-                youtubePlayer = iframe;
-                
-                // Detener otros medios
-                stopAllAudioVideoMedia();
-                youtubeIsPlaying = true;
-            }, 1000);
+                // Simular carga
+                setTimeout(() => {
+                    videoContainer.classList.remove('video-loading');
+                    videoContainer.classList.add('youtube-loaded');
+                }, 1000);
+            } else {
+                // Si la API no está cargada, intentar de nuevo en un momento
+                setTimeout(() => loadYouTubeVideo(thumbnail), 100);
+            }
         }
         
         // Función para detener solo los medios de audio y video (no YouTube)
@@ -2120,8 +2190,7 @@
             
             // Detener la reproducción de YouTube si está activa
             if (youtubePlayer && youtubeIsPlaying) {
-                // No podemos detener directamente el iframe de YouTube sin la API
-                // Simplemente marcamos que ya no se está reproduciendo
+                youtubePlayer.stopVideo();
                 youtubeIsPlaying = false;
             }
         }
@@ -2208,12 +2277,14 @@
                             const videoContainers = slide.querySelectorAll('.video-container');
                             videoContainers.forEach(container => {
                                 container.classList.remove('video-loaded', 'youtube-loaded', 'video-loading');
+                                container.style.minHeight = '200px'; // Restablecer altura mínima
                             });
                         }
                     });
                     
                     // Detener YouTube si no está en el slide activo
                     if (youtubePlayer && !mediaSlides[currentIndex].querySelector('.youtube-player')) {
+                        youtubePlayer.stopVideo();
                         youtubeIsPlaying = false;
                     }
                     
@@ -2267,6 +2338,7 @@
                     
                     // Detener YouTube si está reproduciéndose
                     if (youtubePlayer && youtubeIsPlaying) {
+                        youtubePlayer.stopVideo();
                         youtubeIsPlaying = false;
                     }
                     
