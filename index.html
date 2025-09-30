@@ -1,0 +1,2630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federico Passini - Audio Post-Production Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-primary: #2c3e50;
+            --color-secondary: #3498db;
+            --color-accent: #e74c3c;
+            --color-light: #ecf0f1;
+            --color-dark: #2c3e50;
+            --color-bg: #f8f9fa;
+            --color-margins: #3a516e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--color-margins);
+            overflow-x: hidden;
+        }
+        
+        .page-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            left: 0;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--color-secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+            overflow: hidden;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown-content a {
+            color: var(--color-dark);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s;
+            font-weight: normal;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: var(--color-light);
+            color: var(--color-secondary);
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Cover%20photo/Cover%201.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-top: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: white;
+            padding: 0.7rem 1.3rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 0.4rem;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--color-secondary);
+        }
+
+        .btn-about {
+            background: var(--color-accent);
+        }
+        
+        .btn-about:hover {
+            background: #c0392b;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 0.8rem;
+        }
+        
+        section {
+            padding: 1.5rem 1.8rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-dark);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(--color-secondary);
+            border-radius: 2px;
+        }
+        
+        .about-image {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 8px;
+            margin: 0 auto 1rem;
+            display: block;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .carousel-container {
+            position: relative;
+            height: 170px;
+            overflow: hidden;
+        }
+        
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        
+        .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .carousel-prev {
+            left: 8px;
+        }
+        
+        .carousel-next {
+            right: 8px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 4px;
+            z-index: 10;
+        }
+        
+        .carousel-indicator {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .carousel-indicator.active {
+            background: white;
+        }
+        
+        .project-content {
+            padding: 1rem;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 0.4rem;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+        
+        .project-content p {
+            color: #666;
+            margin-bottom: 0.7rem;
+            font-size: 0.9rem;
+        }
+        
+        .audio-player, .video-player {
+            width: 100%;
+            margin: 0.7rem 0;
+            border-radius: 4px;
+        }
+        
+        .comparison-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .comparison-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .comparison-box {
+            text-align: center;
+        }
+        
+        .comparison-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.4rem;
+            padding: 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .before .comparison-label {
+            background-color: #ffebee;
+            color: #e53935;
+        }
+        
+        .after .comparison-label {
+            background-color: #e8f5e9;
+            color: #43a047;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+        
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+        
+        .lightbox-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .dialogue-carousel {
+            position: relative;
+            margin: 1rem 0;
+        }
+        
+        .dialogue-slide {
+            display: none;
+        }
+        
+        .dialogue-slide.active {
+            display: block;
+        }
+        
+        .dialogue-controls {
+            display: none;
+        }
+        
+        .media-carousel {
+            position: relative;
+            margin: 1rem 0;
+        }
+        
+        .media-slide {
+            display: none;
+        }
+        
+        .media-slide.active {
+            display: block;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            align-items: start;
+        }
+        
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            align-items: start;
+        }
+        
+        .skill-category {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 0.7rem;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 8px;
+            color: var(--color-secondary);
+        }
+        
+        .skill-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .skill-category li {
+            margin-bottom: 0.4rem;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+        
+        .skill-category li:before {
+            content: "•";
+            color: var(--color-secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .education {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 0;
+            height: 100%;
+        }
+        
+        .education-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .education-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .education-item h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.4rem;
+            font-size: 1rem;
+        }
+        
+        .education-item h4 {
+            font-size: 0.95rem;
+        }
+        
+        .education-item p {
+            color: #666;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+        
+        .studio-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .studio-logo {
+            width: 140px;
+            height: auto;
+            flex-shrink: 0;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info i {
+            margin-right: 8px;
+            color: var(--color-secondary);
+            width: 18px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: grid;
+            gap: 0.7rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.4rem;
+            font-weight: bold;
+            color: var(--color-dark);
+            font-size: 0.9rem;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 0.7rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            transition: border 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: var(--color-secondary);
+            outline: none;
+        }
+        
+        footer {
+            background: var(--color-dark);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 3.5rem;
+            margin: 0 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-links a:hover {
+            color: var(--color-secondary);
+            transform: scale(1.1);
+        }
+        
+        .social-links img.upwork-logo {
+            width: 168px;
+            height: 168px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        
+        .social-links img.upwork-logo:hover {
+            transform: scale(1.1);
+        }
+        
+        .contact-text {
+            text-align: center;
+            margin: 1.5rem 0 0.5rem;
+            font-weight: 500;
+            color: var(--color-dark);
+            font-size: 1.2rem;
+        }
+        
+        .about-text-container {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        
+        #about {
+            padding-top: 0.25rem;
+        }
+        
+        .projects-row {
+            margin-top: 1.5rem !important;
+        }
+        
+        section {
+            padding-top: 1rem !important;
+            padding-bottom: 1rem !important;
+        }
+        
+        /* Nuevos estilos para thumbnails y loading - MEJORADOS */
+        .video-container {
+            position: relative;
+            width: 100%;
+            min-height: 200px; /* Altura mínima para mantener el espacio */
+            margin: 0.7rem 0;
+            overflow: hidden;
+            transition: min-height 0.3s ease; /* Transición suave para cambios de altura */
+        }
+        
+        .video-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px; /* Altura fija para el thumbnail */
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .video-thumbnail:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-thumbnail:hover .play-overlay {
+            background: rgba(52, 152, 219, 0.8);
+            transform: scale(1.1);
+        }
+        
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .play-icon {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-thumbnail:hover .play-icon {
+            transform: scale(1.1);
+        }
+        
+        .loading-indicator {
+            display: none;
+            position: absolute;
+            top: 60%; /* Posicionado más abajo */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            text-align: center;
+        }
+        
+        .loading-spinner {
+            width: 30px; /* Más pequeño */
+            height: 30px; /* Más pequeño */
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #3498db;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto;
+        }
+        
+        .loading-text {
+            color: white;
+            margin-top: 8px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .video-player {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 4px;
+            display: none;
+            margin: 0 auto;
+        }
+        
+        .youtube-player {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 4px;
+            display: none;
+            margin: 0 auto;
+        }
+        
+        .video-loaded .video-player,
+        .youtube-loaded .youtube-player {
+            display: block;
+        }
+        
+        .video-loaded .video-thumbnail,
+        .youtube-loaded .video-thumbnail {
+            display: none;
+        }
+        
+        .video-loading .loading-indicator {
+            display: block;
+        }
+        
+        .video-loading .video-thumbnail {
+            display: none;
+        }
+        
+        .media-slide p {
+            margin-top: 0.7rem;
+            min-height: 40px; /* Altura mínima para mantener consistencia */
+        }
+        
+        /* Estilo para mantener el espacio cuando el video se carga */
+        .video-container.video-loaded,
+        .video-container.youtube-loaded {
+            min-height: auto; /* Permite que el contenedor se adapte al video */
+            height: auto;
+        }
+        
+        /* NUEVOS ESTILOS PARA EL MOSAICO EN LIGHTBOX - MODIFICADOS */
+        .lightbox-mosaic {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .lightbox-mosaic.active {
+            display: flex;
+        }
+        
+        .mosaic-header {
+            position: relative;
+            width: 100%;
+            height: 40vh;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .mosaic-header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .mosaic-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            width: 90%;
+            max-height: 40vh;
+            overflow-y: auto;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        .mosaic-thumbnail {
+            width: 100%;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mosaic-thumbnail:hover {
+            transform: scale(1.05);
+            border-color: var(--color-secondary);
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        .mosaic-thumbnail.active {
+            border-color: var(--color-accent);
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+        }
+        
+        .mosaic-thumbnail-play {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mosaic-thumbnail:hover .mosaic-thumbnail-play {
+            opacity: 1;
+        }
+        
+        .mosaic-thumbnail-play i {
+            font-size: 2rem;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .mosaic-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 3001;
+        }
+        
+        .mosaic-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .mosaic-title {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            z-index: 10;
+        }
+        
+        /* Ajustes para el lightbox original (mantener compatibilidad) */
+        .lightbox {
+            z-index: 2000;
+        }
+        
+        @media (max-width: 1400px) {
+            header {
+                left: calc((100% - 1400px) / 2);
+                width: 1400px;
+            }
+        }
+        
+        @media (max-width: 1440px) {
+            header {
+                left: 0;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-content, .contact-content, .comparison-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--color-primary);
+                padding: 1rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                color: white;
+                cursor: pointer;
+            }
+            
+            .page-container {
+                margin: 0;
+            }
+            
+            header {
+                left: 0;
+                width: 100%;
+            }
+            
+            .studio-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .studio-logo {
+                margin-bottom: 1rem;
+                width: 130px;
+            }
+            
+            section {
+                padding: 1.2rem 1rem !important;
+            }
+            
+            #about {
+                padding-top: 0.8rem;
+            }
+            
+            .projects {
+                gap: 1.2rem;
+            }
+            
+            .social-links a {
+                font-size: 2.8rem;
+                margin: 0 1rem;
+            }
+            
+            .social-links img.upwork-logo {
+                width: 112px;
+                height: 112px;
+            }
+            
+            .contact-text, .contact-info p {
+                font-size: 1.1rem;
+            }
+            
+            .carousel-btn {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .video-container {
+                min-height: 150px;
+            }
+            
+            .video-thumbnail {
+                height: 150px;
+            }
+            
+            .play-icon {
+                font-size: 3rem;
+            }
+            
+            /* Ajustes para el mosaico en móviles */
+            .mosaic-header {
+                height: 25vh;
+            }
+            
+            .mosaic-thumbnails {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 10px;
+                max-height: 35vh;
+                width: 95%;
+            }
+            
+            .mosaic-thumbnail {
+                height: 80px;
+            }
+            
+            .mosaic-title {
+                font-size: 1.4rem;
+                top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <div class="header-content">
+                <nav>
+                    <div class="logo">
+                        <i class="fas fa-wave-square"></i>
+                        <span>Federico Passini - Audio Services</span>
+                    </div>
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#projects">Projects</a>
+                            <div class="dropdown-content">
+                                <a href="#sound-design-redesigns">Sound Design - Redesigns</a>
+                                <a href="#dialogue-editing">Dialogue Editing</a>
+                                <a href="#mixing-mastering">Mixing & Mastering</a>
+                                <a href="#documentaries">Documentaries</a>
+                                <a href="#audio-restoration">Audio Restoration</a>
+                                <a href="#commercial-spots">Commercial Spots</a>
+                                <a href="#modular-synthesis">Modular Synthesis</a>
+                                <a href="#studio-sessions">Studio Sessions</a>
+                                <a href="#acoustic-designs">Acoustic Designs</a>
+                            </div>
+                        </li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="home" class="hero">
+            <h1>Federico Passini - Audio Production and Post-Production Specialist</h1>
+            <p>Bringing your projects to life with the highest quality sound</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#about" class="btn btn-about">About Me</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">My Projects</h2>
+            
+            <!-- First Row -->
+            <div class="projects-row">
+                <div class="projects">
+                    <!-- Sound Design - Redesigns -->
+                    <div id="sound-design-redesigns" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-header-image="https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Sound%20Design%20logo.png" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Sound%20Design%20logo.png');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Sound Design - Redesigns</h3>
+                            <p>Creating sound effects and atmosphere for games and films using VCV Rack 2, Kontakt, and Foley techniques</p>
+                            <div class="media-carousel">
+                                <div class="media-slide active">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/Thumbnails/1%20Sci%20Fi.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/1%20-%20sci%20fi%20unity.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Sound Design and Implementation in Unity via Wwise</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/Thumbnails/2%20Dead%20Space.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/2%20-%20dead%20space%20redesign.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Dead Space Trailer Sound Re-design</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/Thumbnails/3%20Zombie%20Bear.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/3%20-%20zombie%20bear.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>AI Zombie Bear Sound Design</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/Thumbnails/4%20Elden.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/4%20-%20elden%20ring%20redesign.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Elden Ring Sound Re-design</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/Thumbnails/5%20Mechacat.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/sound%20design/5%20-%20mecha%20cat.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Mecha Cat animation Sound Design</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dialogue Editing -->
+                    <div id="dialogue-editing" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-header-image="https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Dialogue%20Editing.png" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Dialogue%20Editing.png');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Dialogue Editing</h3>
+                            <p>Cleaning, enhancing and restoring dialogue recordings for film, television and podcasts using iZotope RX</p>
+                            
+                            <div class="media-carousel">
+                                <div class="media-slide active">
+                                    <div class="comparison-container">
+                                        <div class="comparison-box before">
+                                            <span class="comparison-label">BEFORE</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Dialogue%20Cleaning-Enhancing/BEFORE%20Curiosidades%20Last%20Of%20Us.wav" type="audio/wav">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Lot of reverb, Car noises, Sizzles</p>
+                                        </div>
+                                        <div class="comparison-box after">
+                                            <span class="comparison-label">AFTER</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Dialogue%20Cleaning-Enhancing/AFTER%20Curiosidades%20Last%20Of%20Us.wav" type="audio/wav">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Noises and Reverb cleaned, Up-front clear voice with more body</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="media-slide">
+                                    <div class="comparison-container">
+                                        <div class="comparison-box before">
+                                            <span class="comparison-label">BEFORE</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Dialogue%20Cleaning-Enhancing/BEFORE%20Curiosidades%20Friends.wav" type="audio/wav">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Thin voice Buried in Reverb with background noise</p>
+                                        </div>
+                                        <div class="comparison-box after">
+                                            <span class="comparison-label">AFTER</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Dialogue%20Cleaning-Enhancing/AFTER%20Curiosidades%20Friends.wav" type="audio/wav">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Noises and Reverb cleaned. More Round and Full voice, with more presence.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="media-slide">
+                                    <div class="comparison-container">
+                                        <div class="comparison-box before">
+                                            <span class="comparison-label">BEFORE</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Dialogue%20Cleaning-Enhancing/BEFORE%20Rese%C3%B1a%20El%20Jockey.wav" type="audio/wav">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Metallic congested voice, celphone recorded.</p>
+                                        </div>
+                                        <div class="comparison-box after">
+                                            <span class="comparison-label">AFTER</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Dialogue%20Cleaning-Enhancing/AFTER%20Rese%C3%B1a%20El%20Jockey.wav" type="audio/wav">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Removed annoying frecuencies, Enhanced for a more dense voice to appear recorded with a microphone</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mixing & Mastering -->
+                    <div id="mixing-mastering" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-header-image="https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Mixing%20And%20Mastering.png" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Mixing%20And%20Mastering.png');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Mixing & Mastering</h3>
+                            <p>Mixing and mastering for music albums and singles using Reaper, Ableton Live and professional plugins</p>
+                            <div class="media-carousel">
+                                <div class="media-slide active">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/Thumbnails/1%20Cool%20Confusion.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/1%20Cool%20Confusion.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Microphoning and Mastering for Cool Confusion song "Golpe de suerte" live session at "Estudio 25"</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/Thumbnails/2%20Imaginario.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/2%20El%20Desierto%20Crece.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Mix and Master for Renzo Orlandini album "Imaginario"</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/Thumbnails/3%20rioba%201.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/3%20Camino%20por%20la%20ribera.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Mix and Master for RIOBA homonym album</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/Thumbnails/4%20Vito.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/4%20Tango%20en%20tres.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Resampling, Mix and Master for Vito Sputnik song "tango en 3"</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/Thumbnails/5%20Lobo.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/5%20En%20este%20Invierno.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Recording, Mix and Master for Lobo Suelto homonym album</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/Thumbnails/6%20rioba%202.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/6%20Elevaci%C3%B3n%20Natural.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Recording, Mix and Master for RIOBA ep "la quinta copa"</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/Thumbnails/7%20Garotos.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/7%20Garoa.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Recording, Mix and Master for Os Garotos Da Florida song "Garoa"</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/Thumbnails/8%20mulinian.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/mixing%20and%20mastering/8%20Stone.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Recording, Mix and Master for Muliñan EP "Ríe el Sueño"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="projects-row" style="margin-top: 1.5rem;">
+                <div class="projects">
+                    <!-- Documentaries -->
+                    <div id="documentaries" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-header-image="https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Documentaries%20Logo.png" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Documentaries%20Logo.png');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Documentaries</h3>
+                            <p>Audio post-production for documentary films, including field recording, voiceover editing, and atmospheric sound design.</p>
+                            <div class="media-carousel">
+                                <div class="media-slide active">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Documentaries/Thumbnails/1%20Empalme.jpg')" data-youtube-id="BvI7Bc7hWrM">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <div id="youtube-player" class="youtube-player"></div>
+                                    </div>
+                                    <p>Dialogue editing, cleaning and enhancing for Documentary "Empalme, Historias de Lucha y Pertenencia"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Audio Restoration -->
+                    <div id="audio-restoration" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-header-image="https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Audio%20Restoration%20Logo.png" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Audio%20Restoration%20Logo.png');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Audio Restoration</h3>
+                            <p>Restoring and enhancing old or damaged audio recordings using advanced tools and techniques for archival quality results.</p>
+                            
+                            <div class="media-carousel">
+                                <div class="media-slide active">
+                                    <div class="comparison-container">
+                                        <div class="comparison-box before">
+                                            <span class="comparison-label">BEFORE</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Audio%20Restoration/BEFORE%20Testimony%20Sample.mp3" type="audio/mp3">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Audio with extreme white noise and buried voice</p>
+                                        </div>
+                                        <div class="comparison-box after">
+                                            <span class="comparison-label">AFTER</span>
+                                            <audio class="audio-player" controls>
+                                                <source src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Audio%20Restoration/AFTER%20Testimony%20Sample.mp3" type="audio/mp3">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                            <p>Noise removed and audible upfront voice</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Commercial Spots -->
+                    <div id="commercial-spots" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-header-image="https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Commercial%20Spots%20logo.png" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Commercial%20Spots%20logo.png');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Commercial Spots</h3>
+                            <p>Professional audio production for radio and TV advertising campaigns with clear voiceovers and impactful sound design.</p>
+                            <div class="media-carousel">
+                                <div class="media-slide active">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Commercial%20Spots/Thumbnails/1%20Aprepa.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Commercial%20Spots/1%20Aprepa%20Conect.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Voice Recording, Mix and Master for "APREPA" company</p>
+                                </div>
+                                <div class="media-slide">
+                                    <audio class="audio-player" controls>
+                                        <source src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Commercial%20Spots/2%20Sizzle%20Reel.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                    <p>Voice cleaning, editing and enhancing with added music for "Best In Class" company</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Row -->
+            <div class="projects-row" style="margin-top: 1.5rem;">
+                <div class="projects">
+                    <!-- Modular Synthesis -->
+                    <div id="modular-synthesis" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-header-image="https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Modular%20Synthesis%20Logo.png" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Modular%20Synthesis%20Logo.png');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Modular Synthesis</h3>
+                            <p>Creating unique sounds and textures using modular synthesis techniques with VCV Rack 2 and hardware modular systems.</p>
+                            <div class="media-carousel">
+                                <div class="media-slide active">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Modular%20Synthesis/Thumbnails/1%20Sinte.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Modular%20Synthesis/Space%20Relaxing%20Music.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Relaxing Generative Music Patch</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Modular%20Synthesis/Thumbnails/2%20Sinte.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Modular%20Synthesis/Generative%20Cosmos.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Cosmic Generative Music Patch</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Studio Sessions -->
+                    <div id="studio-sessions" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-header-image="https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Studio%20Sessions%20Logo.png" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Studio%20Sessions%20Logo.png');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Studio Sessions</h3>
+                            <p>Professional recording, production and mixing sessions in a fully equipped studio environment with acoustic treatment.</p>
+                            <div class="media-carousel">
+                                <div class="media-slide active">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/Thumbnails/1%20Esa%20diablura.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/1%20Esa%20Diablura%20en%20el%20Estudio%2025.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Microphoning Engineering for "Esa Diablura" Studio Session at "Estudio 25"</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/Thumbnails/2%20Fragmentos.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/2%20Imaginario%20Fragmentos%20Edit.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Microphoning Engineering and Live Recording for Renzo Orlandini "Imaginario: Fragmentos" at "El Refugio" Theatre</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/Thumbnails/3%20Cool%20Confusion.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/3%20Cool%20Confusion.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Microphoning Engineering and Mastering for "Cool Confusion" Studio Session at "Estudio 25"</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/Thumbnails/4%20Breventano.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/4%20Camiletti%20%26%20Breventano%20en%20el%20Estudio%2025.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Microphoning Engineering for "Camiletti & Breventano" Studio Session at "Estudio 25"</p>
+                                </div>
+                                <div class="media-slide">
+                                    <div class="video-container">
+                                        <div class="video-thumbnail" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/Thumbnails/5%20Ana.jpg')" data-video-src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Studio%20Sessions/5%20Ana%20Lola%20Velez%20Drum%20Cover.mp4">
+                                            <div class="play-overlay">
+                                                <i class="fas fa-play-circle play-icon"></i>
+                                            </div>
+                                        </div>
+                                        <div class="loading-indicator">
+                                            <div class="loading-spinner"></div>
+                                            <div class="loading-text">Loading ...</div>
+                                        </div>
+                                        <video class="video-player" controls preload="none">
+                                            <source type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    </div>
+                                    <p>Microphoning Engineering for Ana Lola Velez Studio Session at "Estudio 25"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Acoustic Designs -->
+                    <div id="acoustic-designs" class="project-card">
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <div class="carousel-item" data-header-image="https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Acoustic%20Designs%20Logo.png" style="background-image: url('https://github.com/federnxd/Fedepassiniportfolio/raw/main/Sections%20Thumbnails/Acoustic%20Designs%20Logo.png');"></div>
+                            </div>
+                            <button class="carousel-btn carousel-prev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn carousel-next">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3>Acoustic Designs</h3>
+                            <p>Custom acoustic treatment designs for professional studios, featuring specialized panels, bass traps, and diffusers for optimal sound quality.</p>
+                            <p><strong>Features:</strong> Custom acoustic panels, bass traps, diffusers, and professional measurement with Room EQ Wizard.</p>
+                            <div class="media-carousel">
+                                <div class="media-slide active">
+                                    <img src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Acoustic%20Designs/1%20Estudio.jpg" alt="Complete Radio studio assembly and set-up for Asociación vecinal La Florida" style="width: 100%; border-radius: 4px;">
+                                    <p>Complete Radio studio assembly and set-up for "Asociación vecinal La Florida"</p>
+                                </div>
+                                <div class="media-slide">
+                                    <img src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Acoustic%20Designs/2%20estudio.jpg" alt="Acoustic Design for Radio Studio at Complejo Educativo de Alberdi School" style="width: 100%; border-radius: 4px;">
+                                    <p>Acoustic Design for Radio Studio at "Complejo Educativo de Alberdi" School</p>
+                                </div>
+                                <div class="media-slide">
+                                    <img src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Acoustic%20Designs/3%20estudio.jpg" alt="Acoustic Movable Walls and Bass Traps, design and assembly" style="width: 100%; border-radius: 4px;">
+                                    <p>Acoustic Movable Walls and Bass Traps, design and assembly</p>
+                                </div>
+                                <div class="media-slide">
+                                    <img src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/videos/Acoustic%20Designs/4%20estudio.jpg" alt="Movable vocal booth" style="width: 100%; border-radius: 4px;">
+                                    <p>Movable vocal booth</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            
+            <img src="images/federico-passini-about-me.jpg" alt="Federico Passini - Audio Post-Production Specialist" class="about-image">
+            
+            <div class="about-text-container">
+                <p>Hi, my name is Federico Passini, I am an Audio Post-Production and Production Specialist based in Rosario, Santa Fe, Argentina. With over five years of professional experience in the industry. My passion is creating sound experiences, bringing ideas to life through audio production and processing.</p>
+                
+                <p>I hold advanced diplomas in Digital Audio and Audio for Video Games from Universidad Tecnológica Nacional de Buenos Aires (UTN.BA), a certification in Music Production and Recording from Berklee College of Music, and professional operation credentials from Fundación Latinoamericana de Audio Profesional (FUNLAP).</p>
+                
+                <p>My expertise is further enhanced by specialized training in Sampling & Synthesis, Multiplatform Streaming, Digital Console Operation, and advanced Mixing & Mastering from institutions like CETEAR, Ocho records, etc. Furthermore I hold diplomas in Software - QA from Universidad Tecnológica Nacional - Facultad Regional Resistencia (UTN.FRR) and in library and archive assistant technician from UTF.</p>
+            </div>
+                    
+            <div class="about-content">
+                <div>
+                    <div class="education">
+                        <h3>Education & Certifications</h3>
+                        <div class="education-item">
+                            <h4>Digital Audio</h4>
+                            <p>Universidad Tecnológica Nacional de Buenos Aires (UTN.BA)</p>
+                            <h4>Audio Production and Implementation for Games</h4>
+                            <p>Universidad Tecnológica Nacional de Buenos Aires (UTN.BA)</p>
+                            <h4>Audio Editing and Digital Signal Processing</h4>
+                            <p>Universidad Tecnológica Nacional de Buenos Aires (UTN.BA)</p>
+                            <h4>Synthesis and Sampling</h4>
+                            <p>Universidad Tecnológica Nacional de Buenos Aires (UTN.BA)</p>
+                            <h4>Sound Design for Linear and Non-linear Media</h4>
+                            <p>Universidad Tecnológica Nacional de Buenos Aires (UTN.BA)</p>
+                            <h4>Audio for Games</h4>
+                            <p>Universidad Tecnológica Nacional de Buenos Aires (UTN.BA)</p>
+                        </div>
+                        <div class="education-item">
+                            <h4>Music Production and Recording</h4>
+                            <p>Berklee College of Music</p>
+                            <h4>Recording and Mixing Music</h4>
+                            <p>Berklee College of Music</p>
+                            <h4>Music Production and Its Effects in Composition</h4>
+                            <p>Berklee College of Music</p>
+                            <h4>Creating Music with Technology</h4>
+                            <p>Berklee College of Music</p>
+                            
+                            <p>Certifications</p>
+                        </div>
+                        <div class="education-item">
+                            <h4>Professional Radio Operation</h4>
+                            <p>Fundación Latinoamericana de Audio Profesional (FUNLAP)</p>
+                            <h4>Professional Multi-Platform Streaming</h4>
+                            <p>Fundación Latinoamericana de Audio Profesional (FUNLAP)</p>
+                            <h4>Digital Mixers Workshop</h4>
+                            <p>Fundación Latinoamericana de Audio Profesional (FUNLAP)</p>
+                        </div>
+                        <div class="education-item">
+                            <h4>Software Tester - QA</h4>
+                            <p>Universidad Tecnológica Nacional, Facultad Regional Resistencia (UTN.FRR)</p>
+                            <h4>Library and Archive Assistant Technician</h4>
+                            <p>Instituto Iberoamericano UTF</p>
+                        </div>
+                    </div>
+                    
+                    <div class="studio-section">
+                        <div>
+                            <h3>My Studio - "Mítica Studio"</h3>
+                            <p>I work from my own acoustically-designed studio, treated with specific panels, traps, and diffusers I built myself and measured with Room EQ Wizard. It is equipped with first-line microphones, a high-end mixing console, precision monitors and headphones, and a wide array of instruments and MIDI controllers. This ensures that every step, from recording to the final master, is executed in a critical listening environment.</p>
+                        </div>
+                        <img src="images/M%C3%ADtica%20Studio%20Logo.jpg" alt="Mítica Studio Logo" class="studio-logo">
+                    </div>
+                </div>
+                
+                <div class="skills">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Technical Skills</h3>
+                        <ul>
+                            <li>Sound Design & Implementation</li>
+                            <li>Audio Restoration & Dialogue Editing</li>
+                            <li>Mixing, Mastering & Music Production</li>
+                            <li>Game Audio Implementation (Wwise/Unity)</li>
+                            <li>Foley Recording</li>
+                            <li>Modular Synthesis</li>
+                            <li>Studio Acoustics Treatment</li>
+                            <li>Live Sound and Radio Operation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-desktop"></i> Software & Tools</h3>
+                        <ul>
+                            <li>Reaper, Ableton Live, Pro Tools</li>
+                            <li>iZotope RX Suite</li>
+                            <li>VCV Rack 2 for modular synthesis</li>
+                            <li>Vast list of VSTs and Plugins</li>
+                            <li>Kontakt</li>
+                            <li>Wwise, Unity</li>
+                            <li>Soundly Sound Libraries</li>
+                            <li>AI Tools (Suno)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-star"></i> Creative Approach</h3>
+                        <ul>
+                            <li>Combining cutting-edge technology with traditional techniques</li>
+                            <li>AI-integrated workflows for enhanced creativity</li>
+                            <li>Focus on how sound affects perception and emotion</li>
+                            <li>Detail-oriented with creative problem-solving</li>
+                            <li>Efficient, high-quality results</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Have a project in mind?</h3>
+                    <p>Let's talk about how I can help with your audio post-production needs.</p>
+                    <p><i class="fas fa-envelope"></i> your.email@example.com</p>
+                    <p><i class="fas fa-phone"></i> +9 (341) 6053-066</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Rosario, Santa Fe, Argentina</p>
+                    
+                    <p class="contact-text">Or you can contact me on LinkedIn or Upwork:</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/federico-passini" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.upwork.com/freelancers/~012cb8c5a8e2f2a52a" target="_blank">
+                            <img src="https://github.com/federnxd/Fedepassiniportfolio/raw/main/images/upwork-logo.png" alt="Upwork" class="upwork-logo">
+                        </a>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service of Interest</label>
+                        <select id="service">
+                            <option value="">Select a service</option>
+                            <option value="sound-design-redesigns">Sound Design - Redesigns</option>
+                            <option value="dialogue-editing">Dialogue Editing</option>
+                            <option value="mixing-mastering">Mixing & Mastering</option>
+                            <option value="documentaries">Documentaries</option>
+                            <option value="audio-restoration">Audio Restoration</option>
+                            <option value="commercial-spots">Commercial Spots</option>
+                            <option value="modular-synthesis">Modular Synthesis</option>
+                            <option value="studio-sessions">Studio Sessions</option>
+                            <option value="acoustic-designs">Acoustic Designs</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Lightbox original (se mantiene para compatibilidad) -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-content">
+                <img src="" alt="" class="lightbox-img" id="lightbox-img">
+                <div class="lightbox-caption" id="lightbox-caption"></div>
+            </div>
+            <div class="lightbox-close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        
+        <!-- Nuevo lightbox para mosaico -->
+        <div class="lightbox-mosaic" id="lightbox-mosaic">
+            <div class="mosaic-close" id="mosaic-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3 class="mosaic-title" id="mosaic-title"></h3>
+            <div class="mosaic-header">
+                <img src="" alt="" class="mosaic-header-image" id="mosaic-header-image">
+            </div>
+            <div class="mosaic-thumbnails" id="mosaic-thumbnails">
+                <!-- Los thumbnails se generan dinámicamente con JavaScript -->
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2019 Federico Passini - Mítica Studio. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Variables globales para rastrear el estado de reproducción
+        let currentlyPlayingMedia = null;
+        let youtubePlayer = null;
+        let youtubeIsPlaying = false;
+
+        // Cargar la API de YouTube IFrame
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Función para crear el reproductor de YouTube
+        function createYouTubePlayer(container, youtubeId) {
+            youtubePlayer = new YT.Player(container, {
+                height: '315',
+                width: '100%',
+                videoId: youtubeId,
+                playerVars: {
+                    'autoplay': 1,
+                    'playsinline': 1,
+                    'enablejsapi': 1,
+                    'origin': window.location.origin
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // Función que se ejecuta cuando el reproductor de YouTube está listo
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+
+        // Manejar cambios de estado del reproductor de YouTube
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+                youtubeIsPlaying = true;
+                stopAllAudioVideoMedia();
+            }
+            else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                youtubeIsPlaying = false;
+            }
+        }
+        
+        // Función para cargar videos con thumbnails
+        function loadVideoWithThumbnail(thumbnail) {
+            const videoContainer = thumbnail.closest('.video-container');
+            const video = videoContainer.querySelector('.video-player');
+            const source = video.querySelector('source');
+            const loadingIndicator = videoContainer.querySelector('.loading-indicator');
+            const videoSrc = thumbnail.getAttribute('data-video-src');
+            
+            if (!videoSrc || videoContainer.classList.contains('video-loaded')) return;
+            
+            videoContainer.classList.add('video-loading');
+            
+            source.src = videoSrc;
+            video.load();
+            
+            video.addEventListener('loadedmetadata', function() {
+                const videoRatio = video.videoHeight / video.videoWidth;
+                const containerWidth = videoContainer.offsetWidth;
+                const calculatedHeight = containerWidth * videoRatio;
+                
+                videoContainer.style.minHeight = Math.max(200, calculatedHeight) + 'px';
+                
+                videoContainer.classList.remove('video-loading');
+                videoContainer.classList.add('video-loaded');
+                
+                video.play().catch(e => {
+                    console.log('Reproducción automática bloqueada:', e);
+                });
+            }, { once: true });
+            
+            video.addEventListener('play', function() {
+                videoContainer.classList.remove('video-loading');
+                
+                if (currentlyPlayingMedia && currentlyPlayingMedia !== this) {
+                    currentlyPlayingMedia.pause();
+                    currentlyPlayingMedia.currentTime = 0;
+                }
+                
+                if (youtubePlayer && youtubeIsPlaying) {
+                    youtubePlayer.stopVideo();
+                    youtubeIsPlaying = false;
+                }
+                
+                currentlyPlayingMedia = this;
+            });
+            
+            video.addEventListener('error', function() {
+                videoContainer.classList.remove('video-loading');
+                console.error('Error al cargar el video:', videoSrc);
+            });
+            
+            video.addEventListener('pause', function() {
+                if (currentlyPlayingMedia === this) {
+                    currentlyPlayingMedia = null;
+                }
+            });
+            
+            video.addEventListener('ended', function() {
+                if (currentlyPlayingMedia === this) {
+                    currentlyPlayingMedia = null;
+                }
+            });
+        }
+        
+        // Función para cargar video de YouTube con thumbnail
+        function loadYouTubeVideo(thumbnail) {
+            const videoContainer = thumbnail.closest('.video-container');
+            const youtubePlayerDiv = videoContainer.querySelector('.youtube-player');
+            const loadingIndicator = videoContainer.querySelector('.loading-indicator');
+            const youtubeId = thumbnail.getAttribute('data-youtube-id');
+            
+            if (!youtubeId || videoContainer.classList.contains('youtube-loaded')) return;
+            
+            videoContainer.classList.add('video-loading');
+            
+            videoContainer.style.minHeight = '315px';
+            
+            const playerId = 'youtube-player-' + Math.random().toString(36).substr(2, 9);
+            youtubePlayerDiv.id = playerId;
+            
+            youtubePlayerDiv.innerHTML = '';
+            
+            if (typeof YT !== 'undefined' && YT.Player) {
+                createYouTubePlayer(playerId, youtubeId);
+                
+                setTimeout(() => {
+                    videoContainer.classList.remove('video-loading');
+                    videoContainer.classList.add('youtube-loaded');
+                }, 1000);
+            } else {
+                setTimeout(() => loadYouTubeVideo(thumbnail), 100);
+            }
+        }
+        
+        // Función para detener solo los medios de audio y video (no YouTube)
+        function stopAllAudioVideoMedia() {
+            if (currentlyPlayingMedia) {
+                currentlyPlayingMedia.pause();
+                currentlyPlayingMedia.currentTime = 0;
+            }
+            
+            document.querySelectorAll('audio, video').forEach(media => {
+                if (media !== currentlyPlayingMedia) {
+                    media.pause();
+                    media.currentTime = 0;
+                }
+            });
+            
+            currentlyPlayingMedia = null;
+        }
+        
+        // Función para detener todos los medios, incluyendo YouTube
+        function stopAllMedia() {
+            stopAllAudioVideoMedia();
+            
+            if (youtubePlayer && youtubeIsPlaying) {
+                youtubePlayer.stopVideo();
+                youtubeIsPlaying = false;
+            }
+        }
+        
+        // NUEVA FUNCIONALIDAD: Abrir mosaico de thumbnails en lightbox
+        function openMosaicLightbox(carouselItem) {
+            const projectCard = carouselItem.closest('.project-card');
+            const projectTitle = projectCard.querySelector('h3').textContent;
+            
+            // Obtener la imagen de cabecera (siempre la misma para cada sección)
+            const headerImageSrc = carouselItem.getAttribute('data-header-image');
+            
+            // Obtener todos los thumbnails de medios del proyecto
+            const mediaCarousel = projectCard.querySelector('.media-carousel');
+            const mediaSlides = mediaCarousel.querySelectorAll('.media-slide');
+            
+            const mosaicLightbox = document.getElementById('lightbox-mosaic');
+            const mosaicHeaderImage = document.getElementById('mosaic-header-image');
+            const mosaicThumbnails = document.getElementById('mosaic-thumbnails');
+            const mosaicTitle = document.getElementById('mosaic-title');
+            
+            // Establecer título
+            mosaicTitle.textContent = projectTitle;
+            
+            // Establecer imagen de cabecera
+            mosaicHeaderImage.src = headerImageSrc;
+            
+            // Limpiar thumbnails anteriores
+            mosaicThumbnails.innerHTML = '';
+            
+            // Crear thumbnails para cada media slide
+            mediaSlides.forEach((mediaSlide, index) => {
+                const videoThumbnail = mediaSlide.querySelector('.video-thumbnail');
+                const imageThumbnail = mediaSlide.querySelector('img');
+                
+                let thumbnailSrc = '';
+                let isVideo = false;
+                let isYouTube = false;
+                let mediaSrc = '';
+                
+                // Determinar si es video, YouTube o imagen
+                if (videoThumbnail) {
+                    thumbnailSrc = videoThumbnail.style.backgroundImage.replace('url("', '').replace('")', '');
+                    isVideo = true;
+                    isYouTube = videoThumbnail.hasAttribute('data-youtube-id');
+                    mediaSrc = isYouTube ? videoThumbnail.getAttribute('data-youtube-id') : videoThumbnail.getAttribute('data-video-src');
+                } else if (imageThumbnail) {
+                    thumbnailSrc = imageThumbnail.src;
+                    mediaSrc = imageThumbnail.src;
+                }
+                
+                if (!thumbnailSrc) return;
+                
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'mosaic-thumbnail';
+                thumbnail.style.backgroundImage = `url('${thumbnailSrc}')`;
+                
+                // Agregar overlay de play para videos
+                if (isVideo) {
+                    const playOverlay = document.createElement('div');
+                    playOverlay.className = 'mosaic-thumbnail-play';
+                    playOverlay.innerHTML = '<i class="fas fa-play-circle"></i>';
+                    thumbnail.appendChild(playOverlay);
+                }
+                
+                // Al hacer clic en un thumbnail del mosaico
+                thumbnail.addEventListener('click', function() {
+                    closeMosaicLightbox();
+                    
+                    // Activar el media-slide correspondiente
+                    mediaSlides.forEach(slide => slide.classList.remove('active'));
+                    mediaSlides[index].classList.add('active');
+                    
+                    // Hacer scroll suave al proyecto
+                    projectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Reproducir el video si es un video
+                    if (isVideo) {
+                        if (isYouTube) {
+                            loadYouTubeVideo(videoThumbnail);
+                        } else {
+                            loadVideoWithThumbnail(videoThumbnail);
+                        }
+                    }
+                });
+                
+                mosaicThumbnails.appendChild(thumbnail);
+            });
+            
+            // Mostrar el lightbox de mosaico
+            mosaicLightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Función para cerrar el mosaico de lightbox
+        function closeMosaicLightbox() {
+            const mosaicLightbox = document.getElementById('lightbox-mosaic');
+            mosaicLightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Función para actualizar los indicadores del carrusel
+        function updateCarouselIndicators(projectCard) {
+            const mediaCarousel = projectCard.querySelector('.media-carousel');
+            const mediaSlides = mediaCarousel.querySelectorAll('.media-slide');
+            const indicatorsContainer = projectCard.querySelector('.carousel-indicators');
+            
+            // Limpiar indicadores existentes
+            indicatorsContainer.innerHTML = '';
+            
+            // Crear un indicador por cada media slide
+            mediaSlides.forEach((slide, index) => {
+                const indicator = document.createElement('span');
+                indicator.className = 'carousel-indicator';
+                if (index === 0) {
+                    indicator.classList.add('active');
+                }
+                
+                // Al hacer clic en un indicador
+                indicator.addEventListener('click', function() {
+                    // Activar el slide correspondiente
+                    mediaSlides.forEach(s => s.classList.remove('active'));
+                    mediaSlides[index].classList.add('active');
+                    
+                    // Actualizar indicadores activos
+                    indicatorsContainer.querySelectorAll('.carousel-indicator').forEach(ind => {
+                        ind.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+                
+                indicatorsContainer.appendChild(indicator);
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+        
+        // Carrusel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // MODIFICACIÓN: Configurar clics en thumbnails del carrusel para abrir mosaico
+            document.querySelectorAll('.carousel-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    openMosaicLightbox(this);
+                });
+            });
+            
+            // Configurar clics en thumbnails de video
+            document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    if (this.hasAttribute('data-youtube-id')) {
+                        loadYouTubeVideo(this);
+                    } else {
+                        loadVideoWithThumbnail(this);
+                    }
+                });
+            });
+            
+            // Configurar todos los carruseles de medios y actualizar indicadores
+            document.querySelectorAll('.media-carousel').forEach(mediaCarousel => {
+                const mediaSlides = mediaCarousel.querySelectorAll('.media-slide');
+                const projectCard = mediaCarousel.closest('.project-card');
+                
+                // Actualizar indicadores para este proyecto
+                updateCarouselIndicators(projectCard);
+                
+                const carouselContainer = projectCard.querySelector('.carousel-container');
+                
+                if (!carouselContainer) return;
+                
+                const prevBtn = carouselContainer.querySelector('.carousel-prev');
+                const nextBtn = carouselContainer.querySelector('.carousel-next');
+                const indicators = carouselContainer.querySelectorAll('.carousel-indicator');
+                
+                let currentIndex = 0;
+                const totalSlides = mediaSlides.length;
+                
+                function updateCarousel() {
+                    mediaSlides.forEach(slide => {
+                        slide.classList.remove('active');
+                    });
+                    
+                    if (mediaSlides[currentIndex]) {
+                        mediaSlides[currentIndex].classList.add('active');
+                    }
+                    
+                    mediaSlides.forEach(slide => {
+                        if (slide !== mediaSlides[currentIndex]) {
+                            const videos = slide.querySelectorAll('video');
+                            videos.forEach(video => {
+                                video.pause();
+                                video.currentTime = 0;
+                            });
+                            
+                            const videoContainers = slide.querySelectorAll('.video-container');
+                            videoContainers.forEach(container => {
+                                container.classList.remove('video-loaded', 'youtube-loaded', 'video-loading');
+                                container.style.minHeight = '200px';
+                            });
+                        }
+                    });
+                    
+                    if (youtubePlayer && !mediaSlides[currentIndex].querySelector('.youtube-player')) {
+                        youtubePlayer.stopVideo();
+                        youtubeIsPlaying = false;
+                    }
+                    
+                    indicators.forEach((indicator, index) => {
+                        if (index === currentIndex) {
+                            indicator.classList.add('active');
+                        } else {
+                            indicator.classList.remove('active');
+                        }
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex + 1) % totalSlides;
+                        updateCarousel();
+                    });
+                }
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                        updateCarousel();
+                    });
+                }
+                
+                updateCarousel();
+            });
+            
+            // Control de reproducción de medios
+            document.querySelectorAll('audio, video').forEach(media => {
+                media.addEventListener('play', function() {
+                    if (currentlyPlayingMedia && currentlyPlayingMedia !== this) {
+                        currentlyPlayingMedia.pause();
+                        currentlyPlayingMedia.currentTime = 0;
+                    }
+                    
+                    if (youtubePlayer && youtubeIsPlaying) {
+                        youtubePlayer.stopVideo();
+                        youtubeIsPlaying = false;
+                    }
+                    
+                    currentlyPlayingMedia = this;
+                });
+                
+                media.addEventListener('pause', function() {
+                    if (currentlyPlayingMedia === this) {
+                        currentlyPlayingMedia = null;
+                    }
+                });
+                
+                media.addEventListener('ended', function() {
+                    if (currentlyPlayingMedia === this) {
+                        currentlyPlayingMedia = null;
+                    }
+                });
+            });
+            
+            // Cerrar mosaico con botón X
+            document.getElementById('mosaic-close').addEventListener('click', closeMosaicLightbox);
+            
+            // Cerrar mosaico al hacer clic fuera del contenido
+            document.getElementById('lightbox-mosaic').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeMosaicLightbox();
+                }
+            });
+            
+            // Cerrar mosaico con tecla Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeMosaicLightbox();
+                }
+            });
+        });
+
+        // Lightbox functionality original (se mantiene para compatibilidad)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        
+        lightboxClose.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
