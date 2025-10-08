@@ -1172,8 +1172,26 @@
                 padding-top: 0.5rem; /* Reducido de 0.8rem */
             }
             
+            /* MODIFICACIÓN: Carruseles en dos columnas para móviles */
             .projects {
-                gap: 1.2rem;
+                grid-template-columns: repeat(2, 1fr); /* Dos columnas en lugar de una */
+                gap: 1rem; /* Espacio reducido entre elementos */
+            }
+            
+            .project-card {
+                min-height: 320px; /* Altura mínima para mantener consistencia */
+            }
+            
+            .carousel-container {
+                height: 140px; /* Altura reducida para adaptarse a dos columnas */
+            }
+            
+            .project-content h3 {
+                font-size: 1rem; /* Tamaño de fuente ligeramente reducido */
+            }
+            
+            .project-content p {
+                font-size: 0.85rem; /* Tamaño de fuente ligeramente reducido */
             }
             
             .projects-row {
@@ -2164,7 +2182,7 @@
                     <p>Let's talk about how I can help with your audio post-production needs.</p>
                     <p><i class="fas fa-envelope"></i> your.email@example.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Rosario, Santa Fe, Argentina</p>
-                
+                    
                     <p class="contact-text">Or you can contact me on LinkedIn or Upwork:</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/federico-passini" target="_blank"><i class="fab fa-linkedin"></i></a>
